@@ -1,0 +1,19 @@
+---
+# tasks file for nginx
+- name: install nginx
+  apt:
+    name: nginx
+    state: latest 
+  notify: restart nginx   
+
+- name: "copy config file"
+  copy: 
+    src: "./files/default.conf"
+    dest: "/etc/nginx/conf.d/"
+  notify: restart nginx
+
+- name: "copy cep.html"
+  copy: 
+    src: "./files/cep.html"
+    dest: "/var/www/html/"
+  notify: restart nginx
