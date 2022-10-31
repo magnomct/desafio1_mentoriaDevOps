@@ -16,4 +16,9 @@ Vagrant.configure("2") do |config|
       #sudo apt -y install nginx
       SHELL
     end
+    config.vm.provider "virtualbox" do |vb|
+      vb.name = "ubuntu-magno"
+      vb.memory = 2048
+      vb.cpus = 2
+    end
 end
